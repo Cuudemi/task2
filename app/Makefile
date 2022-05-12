@@ -416,7 +416,7 @@ clean: compiler_clean
 	-$(DEL_FILE) *~ core *.core
 	-$(DEL_FILE) *.gcda
 	-$(DEL_FILE) *.gcno
-	rm -rf app
+	rm -rf app .qmake.stash
 
 
 distclean: clean 

@@ -8,6 +8,7 @@ SOURCES += editor.c \
     move.c \
     save.c \
     show.c \
+    shownonempty.c \
     text/append_line.c \
     text/create_text.c \
     text/process_forward.c \

@@ -57,6 +57,7 @@ SOURCES       = editor.c \
 		move.c \
 		save.c \
 		show.c \
+		shownonempty.c \
 		text/append_line.c \
 		text/create_text.c \
 		text/process_forward.c \
@@ -66,6 +67,7 @@ OBJECTS       = editor.o \
 		move.o \
 		save.o \
 		show.o \
+		shownonempty.o \
 		append_line.o \
 		create_text.o \
 		process_forward.o \
@@ -177,6 +179,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		move.c \
 		save.c \
 		show.c \
+		shownonempty.c \
 		text/append_line.c \
 		text/create_text.c \
 		text/process_forward.c \
@@ -414,9 +417,6 @@ distdir: FORCE
 clean: compiler_clean 
 	-$(DEL_FILE) $(OBJECTS)
 	-$(DEL_FILE) *~ core *.core
-	-$(DEL_FILE) *.gcda
-	-$(DEL_FILE) *.gcno
-	rm -rf app .qmake.stash
 
 
 distclean: clean 
@@ -462,6 +462,10 @@ save.o: save.c common.h \
 show.o: show.c common.h \
 		text/text.h
 	$(CC) -c $(CFLAGS) $(INCPATH) -o show.o show.c
+
+shownonempty.o: shownonempty.c common.h \
+		text/text.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o shownonempty.o shownonempty.c
 
 append_line.o: text/append_line.c text/_text.h \
 		text/text.h

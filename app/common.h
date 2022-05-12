@@ -35,4 +35,10 @@ void save(text txt, char *filename);
  */
 void move(text txt, int line, int pose);
 
+/**
+ * Выводит хранимый текст в прямом порядке
+ * следования строк, кроме пустых строк
+ */
+void shownonempty(text txt);
+
 #endif

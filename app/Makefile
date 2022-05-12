@@ -416,6 +416,7 @@ clean: compiler_clean
 	-$(DEL_FILE) *~ core *.core
 	-$(DEL_FILE) *.gcda
 	-$(DEL_FILE) *.gcno
+	rm -rf app
 
 
 distclean: clean 

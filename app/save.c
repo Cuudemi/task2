@@ -1,9 +1,5 @@
 /**
  * save.c - функция сохранения текста
- *
- * Copyright (c) 2022, Nikita Gordeev <gordeev@petrsu.ru>
- *
- * This code is licensed under a MIT-style license.
  */
 
 #include <stdio.h>
@@ -16,6 +12,7 @@ void save(text txt, char *filename) {
 
     FILE *f;
 
+    /* ПРоверяем, имеется ли текст */
     if (txt == NULL || txt->length == 0) {
         fprintf(stderr, "The text doesn't exist\n");
         return;
@@ -27,8 +24,10 @@ void save(text txt, char *filename) {
         return;
     }
 
+    /* Текст ненулевой длины должен содержать хотя бы одну строку*/
     assert(txt->begin != NULL && txt->end != NULL);
 
+    /* Стартуем с начальной точки текста */
     node *current = txt->begin;
 
     do {

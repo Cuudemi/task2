@@ -1,10 +1,6 @@
 /**
  * shownoempty.c -- реализует команду вывода хранимого текста в прямом
  * порядке следования строк, кроме пустых строк
- * 
- * Copyright (c) 2017, Alexander Borodin <aborod@petrsu.ru>
- *
- * This code is licensed under a MIT-style license.
  */
 
 #include <stdio.h>

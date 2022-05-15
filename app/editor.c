@@ -64,6 +64,7 @@ int main()
             continue;
         }
 
+        /* Сохраняем содержимое файла, заданного параметром */
         if (strcmp(cmd, "save") == 0) {
             if ((arg = strtok(NULL, " \n")) == NULL) {
                 fprintf(stderr, "Usage: save filename\n");
@@ -73,7 +74,8 @@ int main()
             continue;
         }
 
-        if (strcmp(cmd, "move") == 0 || strcmp(cmd, "m") == 0) {
+        /* Осуществляем команду перемещения */
+        if (strcmp(cmd, "move") == 0) {
             char *line, *pose;
             if ((line = strtok(NULL, " \n")) == NULL
                 || (pose = strtok(NULL, " \n")) == NULL) {

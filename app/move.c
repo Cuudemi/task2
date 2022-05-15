@@ -9,7 +9,9 @@
 
 void move(text txt, int line, int pose)
 {
+    /* Стартуем с начальной точки текста */
     node *current = txt->begin;
+    
     int k;
     if (pose >= 0) {
         txt->cursor->position = pose;
@@ -22,14 +24,14 @@ void move(text txt, int line, int pose)
         if (line > l)
             line = l;
 
-    while (current) {
-        if (k == line) {
-            txt->cursor->line = current;
-            break;
+        while (current) {
+            if (k == line) {
+                txt->cursor->line = current;
+                break;
+            }
+            current = current->next;
+            k++;
         }
-        current = current->next;
-        k++;
-    }
     }
     else {
         txt->cursor->line = current;

@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "text/text.h"
+#include "text.h"
 #include "common.h"
 
 #define MAXLINE 255

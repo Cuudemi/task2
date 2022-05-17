@@ -1,18 +1,18 @@
-#ifndef TEST_H
-#define TEST_H
+#ifndef QTEST_H
+#define QTEST_H
 
 #include <gtest/gtest.h>
-
-#include <fcntl.h>
-#include <errno.h>
-#include <unistd.h>
+#include <gmock/gmock-matchers.h>
+#include <iostream>
+#include <fstream>
 
 extern "C" {
-#include "../app/common.h"
-#include "../app/text/_text.h"
-#include "../app/text/text.h"
+#include "common.h"
+#include "_text.h"
+#include "text.h"
 }
 
+char *input = INPUTDIR "/input.txt";
 /* ----- move.c ----- */
 
 // позитивный тест

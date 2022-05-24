@@ -30,7 +30,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = qmake-gtest1.0.0
-DISTDIR = /home/anastasia/Studying/Testing/task12/task1/.tmp/qmake-gtest1.0.0
+DISTDIR = /home/anastasia/Studying/Testing/task2/.tmp/qmake-gtest1.0.0
 SUBTARGETS    =  \
 		sub-app \
 		sub-tests
@@ -38,90 +38,90 @@ SUBTARGETS    =  \
 
 sub-app-qmake_all:  FORCE
 	@test -d app/ || mkdir -p app/
-	cd app/ && $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/app/app.pro
+	cd app/ && $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/app/app.pro
 	cd app/ && $(MAKE) -f Makefile qmake_all
 sub-app: FORCE
 	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/app/app.pro ) && $(MAKE) -f Makefile
+	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/app/app.pro ) && $(MAKE) -f Makefile
 sub-app-make_first-ordered: FORCE
 	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/app/app.pro ) && $(MAKE) -f Makefile 
+	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/app/app.pro ) && $(MAKE) -f Makefile 
 sub-app-make_first: FORCE
 	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/app/app.pro ) && $(MAKE) -f Makefile 
+	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/app/app.pro ) && $(MAKE) -f Makefile 
 sub-app-all-ordered: FORCE
 	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/app/app.pro ) && $(MAKE) -f Makefile all
+	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/app/app.pro ) && $(MAKE) -f Makefile all
 sub-app-all: FORCE
 	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/app/app.pro ) && $(MAKE) -f Makefile all
+	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/app/app.pro ) && $(MAKE) -f Makefile all
 sub-app-clean-ordered: FORCE
 	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/app/app.pro ) && $(MAKE) -f Makefile clean
+	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/app/app.pro ) && $(MAKE) -f Makefile clean
 sub-app-clean: FORCE
 	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/app/app.pro ) && $(MAKE) -f Makefile clean
+	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/app/app.pro ) && $(MAKE) -f Makefile clean
 sub-app-distclean-ordered: FORCE
 	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/app/app.pro ) && $(MAKE) -f Makefile distclean
+	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/app/app.pro ) && $(MAKE) -f Makefile distclean
 sub-app-distclean: FORCE
 	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/app/app.pro ) && $(MAKE) -f Makefile distclean
+	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/app/app.pro ) && $(MAKE) -f Makefile distclean
 sub-app-install_subtargets-ordered: FORCE
 	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/app/app.pro ) && $(MAKE) -f Makefile install
+	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/app/app.pro ) && $(MAKE) -f Makefile install
 sub-app-install_subtargets: FORCE
 	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/app/app.pro ) && $(MAKE) -f Makefile install
+	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/app/app.pro ) && $(MAKE) -f Makefile install
 sub-app-uninstall_subtargets-ordered: FORCE
 	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/app/app.pro ) && $(MAKE) -f Makefile uninstall
+	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/app/app.pro ) && $(MAKE) -f Makefile uninstall
 sub-app-uninstall_subtargets: FORCE
 	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/app/app.pro ) && $(MAKE) -f Makefile uninstall
+	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/app/app.pro ) && $(MAKE) -f Makefile uninstall
 sub-tests-qmake_all: sub-app-qmake_all FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/tests/tests.pro
+	cd tests/ && $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/tests/tests.pro
 	cd tests/ && $(MAKE) -f Makefile qmake_all
 sub-tests: FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/tests/tests.pro ) && $(MAKE) -f Makefile
+	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/tests/tests.pro ) && $(MAKE) -f Makefile
 sub-tests-make_first-ordered: sub-app-make_first-ordered  FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/tests/tests.pro ) && $(MAKE) -f Makefile 
+	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/tests/tests.pro ) && $(MAKE) -f Makefile 
 sub-tests-make_first: FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/tests/tests.pro ) && $(MAKE) -f Makefile 
+	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/tests/tests.pro ) && $(MAKE) -f Makefile 
 sub-tests-all-ordered: sub-app-all-ordered  FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/tests/tests.pro ) && $(MAKE) -f Makefile all
+	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/tests/tests.pro ) && $(MAKE) -f Makefile all
 sub-tests-all: FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/tests/tests.pro ) && $(MAKE) -f Makefile all
+	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/tests/tests.pro ) && $(MAKE) -f Makefile all
 sub-tests-clean-ordered: sub-app-clean-ordered  FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/tests/tests.pro ) && $(MAKE) -f Makefile clean
+	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/tests/tests.pro ) && $(MAKE) -f Makefile clean
 sub-tests-clean: FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/tests/tests.pro ) && $(MAKE) -f Makefile clean
+	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/tests/tests.pro ) && $(MAKE) -f Makefile clean
 sub-tests-distclean-ordered: sub-app-distclean-ordered  FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/tests/tests.pro ) && $(MAKE) -f Makefile distclean
+	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/tests/tests.pro ) && $(MAKE) -f Makefile distclean
 sub-tests-distclean: FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/tests/tests.pro ) && $(MAKE) -f Makefile distclean
+	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/tests/tests.pro ) && $(MAKE) -f Makefile distclean
 sub-tests-install_subtargets-ordered: sub-app-install_subtargets-ordered  FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/tests/tests.pro ) && $(MAKE) -f Makefile install
+	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/tests/tests.pro ) && $(MAKE) -f Makefile install
 sub-tests-install_subtargets: FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/tests/tests.pro ) && $(MAKE) -f Makefile install
+	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/tests/tests.pro ) && $(MAKE) -f Makefile install
 sub-tests-uninstall_subtargets-ordered: sub-app-uninstall_subtargets-ordered  FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/tests/tests.pro ) && $(MAKE) -f Makefile uninstall
+	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/tests/tests.pro ) && $(MAKE) -f Makefile uninstall
 sub-tests-uninstall_subtargets: FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/tests/tests.pro ) && $(MAKE) -f Makefile uninstall
+	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/tests/tests.pro ) && $(MAKE) -f Makefile uninstall
 
 Makefile: qmake-gtest.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -342,18 +342,18 @@ uninstall_subtargets: sub-app-uninstall_subtargets-ordered sub-tests-uninstall_s
 
 sub-app-check_ordered:
 	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/app/app.pro ) && $(MAKE) -f Makefile check
+	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/app/app.pro ) && $(MAKE) -f Makefile check
 sub-tests-check_ordered: sub-app-check_ordered 
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/tests/tests.pro ) && $(MAKE) -f Makefile check
+	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/tests/tests.pro ) && $(MAKE) -f Makefile check
 check: sub-app-check_ordered sub-tests-check_ordered
 
 sub-app-benchmark_ordered:
 	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/app/app.pro ) && $(MAKE) -f Makefile benchmark
+	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/app/app.pro ) && $(MAKE) -f Makefile benchmark
 sub-tests-benchmark_ordered: sub-app-benchmark_ordered 
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/tests/tests.pro ) && $(MAKE) -f Makefile benchmark
+	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/tests/tests.pro ) && $(MAKE) -f Makefile benchmark
 benchmark: sub-app-benchmark_ordered sub-tests-benchmark_ordered
 install:install_subtargets  FORCE
 
@@ -370,9 +370,9 @@ distdir: sub-app-distdir sub-tests-distdir FORCE
 
 sub-app-distdir: FORCE
 	@test -d app/ || mkdir -p app/
-	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/app/app.pro ) && $(MAKE) -e -f Makefile distdir DISTDIR=$(DISTDIR)/app
+	cd app/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/app/app.pro ) && $(MAKE) -e -f Makefile distdir DISTDIR=$(DISTDIR)/app
 
 sub-tests-distdir: FORCE
 	@test -d tests/ || mkdir -p tests/
-	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task12/task1/tests/tests.pro ) && $(MAKE) -e -f Makefile distdir DISTDIR=$(DISTDIR)/tests
+	cd tests/ && ( test -e Makefile || $(QMAKE) -o Makefile /home/anastasia/Studying/Testing/task2/tests/tests.pro ) && $(MAKE) -e -f Makefile distdir DISTDIR=$(DISTDIR)/tests
 

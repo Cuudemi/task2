@@ -14,7 +14,7 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DINPUTDIR=\"/home/anastasia/Studying/Testing/task12/task1/tests/input/\"
+DEFINES       = -DINPUTDIR=\"/home/anastasia/Studying/Testing/task2/tests/input/\"
 CFLAGS        = -pipe -Wall -Wextra -fprofile-arcs -ftest-coverage -O2 -D_REENTRANT -Wall -W -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -Wall -Wextra -fprofile-arcs -ftest-coverage -O2 -D_REENTRANT -Wall -W -fPIC $(DEFINES)
 INCPATH       = -I. -I../external/googletest/googletest -I../external/googletest/googletest/include -I../external/googletest/googlemock -I../external/googletest/googlemock/include -I../app -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++
@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = tests1.0.0
-DISTDIR = /home/anastasia/Studying/Testing/task12/task1/tests/.tmp/tests1.0.0
+DISTDIR = /home/anastasia/Studying/Testing/task2/tests/.tmp/tests1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1
 LIBS          = $(SUBLIBS) -lgcov -lpthread   
@@ -76,7 +76,8 @@ OBJECTS       = gtest-all.o \
 		create_text.o \
 		process_forward.o \
 		remove_all.o
-DIST          = input/TestSTDOut_output.txt \
+DIST          = input/missed_textsage.txt \
+		tests/input/missed_textsage.txt \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -455,78 +456,76 @@ compiler_clean:
 ####### Compile
 
 gtest-all.o: ../external/googletest/googletest/src/gtest-all.cc ../external/googletest/googletest/include/gtest/gtest.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-internal.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-port.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-port-arch.h \
-		../external/googletest/googletest/include/gtest/internal/custom/gtest-port.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-tuple.h \
+		../external/googletest/googletest/include/gtest/gtest-assertion-result.h \
 		../external/googletest/googletest/include/gtest/gtest-message.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-string.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-filepath.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-type-util.h \
+		../external/googletest/googletest/include/gtest/internal/gtest-port.h \
+		../external/googletest/googletest/include/gtest/internal/custom/gtest-port.h \
+		../external/googletest/googletest/include/gtest/internal/gtest-port-arch.h \
 		../external/googletest/googletest/include/gtest/gtest-death-test.h \
 		../external/googletest/googletest/include/gtest/internal/gtest-death-test-internal.h \
+		../external/googletest/googletest/include/gtest/gtest-matchers.h \
+		../external/googletest/googletest/include/gtest/gtest-printers.h \
+		../external/googletest/googletest/include/gtest/internal/gtest-internal.h \
+		../external/googletest/googletest/include/gtest/internal/gtest-filepath.h \
+		../external/googletest/googletest/include/gtest/internal/gtest-string.h \
+		../external/googletest/googletest/include/gtest/internal/gtest-type-util.h \
+		../external/googletest/googletest/include/gtest/internal/custom/gtest-printers.h \
 		../external/googletest/googletest/include/gtest/gtest-param-test.h \
 		../external/googletest/googletest/include/gtest/internal/gtest-param-util.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-linked_ptr.h \
-		../external/googletest/googletest/include/gtest/gtest-printers.h \
-		../external/googletest/googletest/include/gtest/internal/custom/gtest-printers.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-param-util-generated.h \
-		../external/googletest/googletest/include/gtest/gtest_prod.h \
 		../external/googletest/googletest/include/gtest/gtest-test-part.h \
 		../external/googletest/googletest/include/gtest/gtest-typed-test.h \
 		../external/googletest/googletest/include/gtest/gtest_pred_impl.h \
-		../external/googletest/googletest/src/gtest.cc \
-		../external/googletest/googletest/include/gtest/internal/custom/gtest.h \
-		../external/googletest/googletest/include/gtest/gtest-spi.h \
-		../external/googletest/googletest/src/gtest-internal-inl.h \
+		../external/googletest/googletest/include/gtest/gtest_prod.h \
+		../external/googletest/googletest/src/gtest-assertion-result.cc \
 		../external/googletest/googletest/src/gtest-death-test.cc \
+		../external/googletest/googletest/include/gtest/internal/custom/gtest.h \
+		../external/googletest/googletest/src/gtest-internal-inl.h \
+		../external/googletest/googletest/include/gtest/gtest-spi.h \
 		../external/googletest/googletest/src/gtest-filepath.cc \
+		../external/googletest/googletest/src/gtest-matchers.cc \
 		../external/googletest/googletest/src/gtest-port.cc \
 		../external/googletest/googletest/src/gtest-printers.cc \
 		../external/googletest/googletest/src/gtest-test-part.cc \
-		../external/googletest/googletest/src/gtest-typed-test.cc
+		../external/googletest/googletest/src/gtest-typed-test.cc \
+		../external/googletest/googletest/src/gtest.cc
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gtest-all.o ../external/googletest/googletest/src/gtest-all.cc
 
 gmock-all.o: ../external/googletest/googlemock/src/gmock-all.cc ../external/googletest/googlemock/include/gmock/gmock.h \
 		../external/googletest/googlemock/include/gmock/gmock-actions.h \
 		../external/googletest/googlemock/include/gmock/internal/gmock-internal-utils.h \
-		../external/googletest/googlemock/include/gmock/internal/gmock-generated-internal-utils.h \
 		../external/googletest/googlemock/include/gmock/internal/gmock-port.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-linked_ptr.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-port.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-port-arch.h \
-		../external/googletest/googletest/include/gtest/internal/custom/gtest-port.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-tuple.h \
 		../external/googletest/googlemock/include/gmock/internal/custom/gmock-port.h \
+		../external/googletest/googletest/include/gtest/internal/gtest-port.h \
+		../external/googletest/googletest/include/gtest/internal/custom/gtest-port.h \
+		../external/googletest/googletest/include/gtest/internal/gtest-port-arch.h \
 		../external/googletest/googletest/include/gtest/gtest.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-internal.h \
+		../external/googletest/googletest/include/gtest/gtest-assertion-result.h \
 		../external/googletest/googletest/include/gtest/gtest-message.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-string.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-filepath.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-type-util.h \
 		../external/googletest/googletest/include/gtest/gtest-death-test.h \
 		../external/googletest/googletest/include/gtest/internal/gtest-death-test-internal.h \
+		../external/googletest/googletest/include/gtest/gtest-matchers.h \
+		../external/googletest/googletest/include/gtest/gtest-printers.h \
+		../external/googletest/googletest/include/gtest/internal/gtest-internal.h \
+		../external/googletest/googletest/include/gtest/internal/gtest-filepath.h \
+		../external/googletest/googletest/include/gtest/internal/gtest-string.h \
+		../external/googletest/googletest/include/gtest/internal/gtest-type-util.h \
+		../external/googletest/googletest/include/gtest/internal/custom/gtest-printers.h \
 		../external/googletest/googletest/include/gtest/gtest-param-test.h \
 		../external/googletest/googletest/include/gtest/internal/gtest-param-util.h \
-		../external/googletest/googletest/include/gtest/gtest-printers.h \
-		../external/googletest/googletest/include/gtest/internal/custom/gtest-printers.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-param-util-generated.h \
-		../external/googletest/googletest/include/gtest/gtest_prod.h \
 		../external/googletest/googletest/include/gtest/gtest-test-part.h \
 		../external/googletest/googletest/include/gtest/gtest-typed-test.h \
 		../external/googletest/googletest/include/gtest/gtest_pred_impl.h \
+		../external/googletest/googletest/include/gtest/gtest_prod.h \
+		../external/googletest/googlemock/include/gmock/internal/gmock-pp.h \
 		../external/googletest/googlemock/include/gmock/gmock-cardinalities.h \
-		../external/googletest/googlemock/include/gmock/gmock-generated-actions.h \
-		../external/googletest/googlemock/include/gmock/internal/custom/gmock-generated-actions.h \
-		../external/googletest/googlemock/include/gmock/gmock-generated-function-mockers.h \
+		../external/googletest/googlemock/include/gmock/gmock-function-mocker.h \
 		../external/googletest/googlemock/include/gmock/gmock-spec-builders.h \
 		../external/googletest/googlemock/include/gmock/gmock-matchers.h \
 		../external/googletest/googlemock/include/gmock/internal/custom/gmock-matchers.h \
-		../external/googletest/googlemock/include/gmock/gmock-generated-nice-strict.h \
-		../external/googletest/googlemock/include/gmock/gmock-generated-matchers.h \
 		../external/googletest/googlemock/include/gmock/gmock-more-actions.h \
+		../external/googletest/googlemock/include/gmock/internal/custom/gmock-generated-actions.h \
 		../external/googletest/googlemock/include/gmock/gmock-more-matchers.h \
+		../external/googletest/googlemock/include/gmock/gmock-nice-strict.h \
 		../external/googletest/googlemock/src/gmock-cardinalities.cc \
 		../external/googletest/googlemock/src/gmock-internal-utils.cc \
 		../external/googletest/googlemock/src/gmock-matchers.cc \
@@ -536,32 +535,31 @@ gmock-all.o: ../external/googletest/googlemock/src/gmock-all.cc ../external/goog
 
 main.o: main.cpp test.h \
 		../external/googletest/googletest/include/gtest/gtest.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-internal.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-port.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-port-arch.h \
-		../external/googletest/googletest/include/gtest/internal/custom/gtest-port.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-tuple.h \
+		../external/googletest/googletest/include/gtest/gtest-assertion-result.h \
 		../external/googletest/googletest/include/gtest/gtest-message.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-string.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-filepath.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-type-util.h \
+		../external/googletest/googletest/include/gtest/internal/gtest-port.h \
+		../external/googletest/googletest/include/gtest/internal/custom/gtest-port.h \
+		../external/googletest/googletest/include/gtest/internal/gtest-port-arch.h \
 		../external/googletest/googletest/include/gtest/gtest-death-test.h \
 		../external/googletest/googletest/include/gtest/internal/gtest-death-test-internal.h \
+		../external/googletest/googletest/include/gtest/gtest-matchers.h \
+		../external/googletest/googletest/include/gtest/gtest-printers.h \
+		../external/googletest/googletest/include/gtest/internal/gtest-internal.h \
+		../external/googletest/googletest/include/gtest/internal/gtest-filepath.h \
+		../external/googletest/googletest/include/gtest/internal/gtest-string.h \
+		../external/googletest/googletest/include/gtest/internal/gtest-type-util.h \
+		../external/googletest/googletest/include/gtest/internal/custom/gtest-printers.h \
 		../external/googletest/googletest/include/gtest/gtest-param-test.h \
 		../external/googletest/googletest/include/gtest/internal/gtest-param-util.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-linked_ptr.h \
-		../external/googletest/googletest/include/gtest/gtest-printers.h \
-		../external/googletest/googletest/include/gtest/internal/custom/gtest-printers.h \
-		../external/googletest/googletest/include/gtest/internal/gtest-param-util-generated.h \
-		../external/googletest/googletest/include/gtest/gtest_prod.h \
 		../external/googletest/googletest/include/gtest/gtest-test-part.h \
 		../external/googletest/googletest/include/gtest/gtest-typed-test.h \
 		../external/googletest/googletest/include/gtest/gtest_pred_impl.h \
+		../external/googletest/googletest/include/gtest/gtest_prod.h \
 		../external/googletest/googlemock/include/gmock/gmock-matchers.h \
 		../external/googletest/googlemock/include/gmock/internal/gmock-internal-utils.h \
-		../external/googletest/googlemock/include/gmock/internal/gmock-generated-internal-utils.h \
 		../external/googletest/googlemock/include/gmock/internal/gmock-port.h \
 		../external/googletest/googlemock/include/gmock/internal/custom/gmock-port.h \
+		../external/googletest/googlemock/include/gmock/internal/gmock-pp.h \
 		../external/googletest/googlemock/include/gmock/internal/custom/gmock-matchers.h \
 		../app/common.h \
 		../app/text.h \

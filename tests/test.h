@@ -1,5 +1,5 @@
-#ifndef QTEST_H
-#define QTEST_H
+#ifndef EQTEST_H
+#define EQTEST_H
 
 #include <gtest/gtest.h>
 #include <gmock/gmock-matchers.h>
@@ -12,29 +12,30 @@ extern "C" {
 #include "text.h"
 }
 
-char *input = INPUTDIR "/input.txt";
-/* ----- move.c ----- */
+char *input_missed_textsage = INPUTDIR "/missed_textsage.txt";
 
-// позитивный тест
-TEST(test_move, positive) {
+/* -------------------------- move.c -------------------------- */
 
+// позитивный. первая строка, начало первого слова
+TEST(test_move, positive_1) {
     text txt = create_text();
-    load(txt, input);
-    move(txt, 2, 3);
+    load(txt, input_missed_textsage);
 
-    //позиция в строке
-    EXPECT_EQ(txt->cursor->position, 3);
+    move(txt,0,0);
+    
+    testing::internal::CaptureStdout();
+    show(txt);
+    std::string output = testing::internal::GetCapturedStdout();
 
-    int line = 1;
-    node *current = txt->begin;
-    while(current != txt->cursor->line) {
-        line++;
-        current = current->next;
-    }
+    ASSERT_EQ("|Missed_textsage -- a small text game created by being impressed\n"
+            "from the visual novel «missed messages.» created by Angela He. It shows how important it is to\n"
+            "support the people around you, to show empathy and care. The game has\n"
+            "several endings: good and bad, and it depends only on the player how the\n"
+            "fate of the main character will go.\n"
+            "Copyright (c) 18 may 2022, Sheglova Anastasia\n", output);
 
-    EXPECT_EQ(line, 2);
     remove_all(txt);
 }
 
 
-#endif // SQUAREEQUALITY_TEST_H
+#endif // EQTEST_H

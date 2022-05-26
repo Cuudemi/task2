@@ -35,5 +35,5 @@ SOURCES +=     main.cpp \
 INCLUDEPATH += ../app
 
 DISTFILES += \
-    input/missed_textsage.txt \
-    tests/input/missed_textsage.txt
+    input/text.txt \
+    tests/input/text.txt

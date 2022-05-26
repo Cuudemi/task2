@@ -1,6 +1,0 @@
-Missed_textsage -- a small text game created by being impressed
-from the visual novel «missed messages.» created by Angela He. It shows how important it is to
-support the people around you, to show empathy and care. The game has
-several endings: good and bad, and it depends only on the player how the
-fate of the main character will go.
-Copyright (c) 18 may 2022, Sheglova Anastasia.

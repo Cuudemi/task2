@@ -13,7 +13,10 @@ extern "C" {
 }
 
 char *input_text = INPUTDIR "/text.txt";
+char *input_text_c = INPUTDIR "/text.c";
 char *input_text_with_empty_lines = INPUTDIR "/t.txt";
+char *input_empty = INPUTDIR "/empty.txt";
+char *input_non_empty = INPUTDIR "/non_empty.txt";
 
 /* -------------------------- move.c -------------------------- */
 
@@ -225,6 +228,22 @@ TEST(test_move, negative_4) {
     remove_all(txt);
 }
 
+// негативный. перемещение по пустому тексту
+TEST(test_move, negative_5) {
+    text txt = create_text();
+    load(txt, input_empty);
+
+    move(txt,0, 0);
+    
+    // захватываем stdout с помощью функции Googletest
+    testing::internal::CaptureStderr();
+    show(txt);
+    std::string output = testing::internal::GetCapturedStderr();
+
+    ASSERT_EQ("There are already no any lines in the text!\n", output);
+
+    remove_all(txt);
+}
 
 /* -------------------------- load.c -------------------------- */
 
@@ -297,7 +316,7 @@ TEST(test_save, negative_1) {
 
     // захватываем stdout с помощью функции Googletest
     testing::internal::CaptureStdout();
-    save (txt, NULL);
+    save (NULL, "text2.txt");
     std::string output = testing::internal::GetCapturedStdout();
 
     ASSERT_EQ("", output);
@@ -305,6 +324,36 @@ TEST(test_save, negative_1) {
     remove_all(txt);
 }
 
+// негативный. сохранение файла в неверный формат
+TEST(test_save, negative_2) {
+    text txt = create_text();
+    load(txt, input_text);
+    append_line(txt, input_text);
+
+    // захватываем stdout с помощью функции Googletest
+    testing::internal::CaptureStdout();
+    save (NULL, "some.txt");
+    std::string output = testing::internal::GetCapturedStdout();
+
+    ASSERT_EQ("", output);
+
+    remove_all(txt);
+}
+
+// негативный. сохранение пустого файла
+TEST(test_save, negative_3) {
+    text txt = create_text();
+    load(txt, input_empty);
+
+    // захватываем stdout с помощью функции Googletest
+    testing::internal::CaptureStderr();
+    save (txt, "some.txt");
+    std::string output = testing::internal::GetCapturedStderr();
+
+    ASSERT_EQ("The text doesn't exist\n", output);
+
+    remove_all(txt);
+}
 
 
 /* -------------------------- shownonempty.c -------------------------- */
@@ -320,18 +369,18 @@ TEST(test_shownonempty, positive_1) {
     std::string output = testing::internal::GetCapturedStdout();
 
     ASSERT_EQ("He was indeed a deplorable spectacle. In the\n"
-"dim light of a foggy November day the sick room\n"
-"was a gloomy spot, but it was that gaunt, wasted\n"
-"face staring at me from the bed which sent a chill\n"
-"to my heart. His eyes had the brightness of fever,\n"
-"there was a hectic flush upon either cheek, and dark\n"
-"crusts clung to his lips; the thin hands upon the\n"
-"coverlet twitched incessantly, his voice was croaking and spasmodic. He lay listlessly as I entered\n"
-"the room, but the sight of me brought a gleam of\n"
-"recognition to his eyes.\n"
-"“Well, Watson, we seem to have fallen upon evil\n"
-"days,” said he in a feeble voice, but with something\n"
-"of his old carelessness of manner.|\n", output);
+            "dim light of a foggy November day the sick room\n"
+            "was a gloomy spot, but it was that gaunt, wasted\n"
+            "face staring at me from the bed which sent a chill\n"
+            "to my heart. His eyes had the brightness of fever,\n"
+            "there was a hectic flush upon either cheek, and dark\n"
+            "crusts clung to his lips; the thin hands upon the\n"
+            "coverlet twitched incessantly, his voice was croaking and spasmodic. He lay listlessly as I entered\n"
+            "the room, but the sight of me brought a gleam of\n"
+            "recognition to his eyes.\n"
+            "“Well, Watson, we seem to have fallen upon evil\n"
+            "days,” said he in a feeble voice, but with something\n"
+            "of his old carelessness of manner.|\n", output);
 
     remove_all(txt);
 }
@@ -341,6 +390,33 @@ TEST(test_shownonempty, positive_2) {
     text txt = create_text();
     load(txt, input_text_with_empty_lines);
     
+    // захватываем stdout с помощью функции Googletest
+    testing::internal::CaptureStdout();
+    shownonempty(txt);
+    std::string output = testing::internal::GetCapturedStdout();
+
+    ASSERT_EQ("He was indeed a deplorable spectacle. In the\n"
+            "dim light of a foggy November day the sick room\n"
+            "was a gloomy spot, but it was that gaunt, wasted\n"
+            "face staring at me from the bed which sent a chill\n"
+            "to my heart. His eyes had the brightness of fever,\n"
+            "there was a hectic flush upon either cheek, and dark\n"
+            "crusts clung to his lips; the thin hands upon the\n"
+            "coverlet twitched incessantly, his voice was croaking and spasmodic. He lay listlessly as I entered\n"
+            "the room, but the sight of me brought a gleam of\n"
+            "recognition to his eyes.\n"
+            "“Well, Watson, we seem to have fallen upon evil\n"
+            "days,” said he in a feeble voice, but with something\n"
+            "of his old carelessness of manner.|\n", output);
+
+    remove_all(txt);
+}
+
+// негативный. запуск текста без пустых строк
+TEST(test_shownonempty, positive_3) {
+    text txt = create_text();
+    load(txt, input_non_empty);
+
     // захватываем stdout с помощью функции Googletest
     testing::internal::CaptureStdout();
     shownonempty(txt);
@@ -373,6 +449,21 @@ TEST(test_shownonempty, negative_1) {
     std::string output = testing::internal::GetCapturedStdout();
 
     ASSERT_EQ("", output);
+
+    remove_all(txt);
+}
+
+// негативный. показ пустого текста
+TEST(test_shownonempty, negative_2) {
+    text txt = create_text();
+    load(txt, input_empty);
+    
+    // захватываем stdout с помощью функции Googletest
+    testing::internal::CaptureStderr();
+    shownonempty(txt);
+    std::string output = testing::internal::GetCapturedStderr();
+
+    ASSERT_EQ("There are already no any lines in the text!\n", output);
 
     remove_all(txt);
 }

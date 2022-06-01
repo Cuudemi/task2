@@ -30,10 +30,15 @@ SOURCES +=     main.cpp \
     ../app/append_line.c \
     ../app/create_text.c \
     ../app/process_forward.c \
-    ../app/remove_all.c
+    ../app/remove_all.c \
+    ../app/mwbb.c \
+    ../app/rc.c \
 
 INCLUDEPATH += ../app
 
 DISTFILES += \
     input/text.txt \
-    tests/input/text.txt
+    tests/input/text.txt \
+    tests/input/t.txt \
+    tests/input/empty.txt \
+    tests/input/non_empty/.txt\

@@ -59,6 +59,16 @@ int main()
             continue;
         }
 
+        if (strcmp(cmd, "rc") == 0) {
+            rc(txt);
+            continue;
+        }
+
+        if (strcmp(cmd, "mwbb") == 0) {
+            mwbb(txt);
+            continue;
+        }
+
         if (strcmp(cmd, "sne") == 0) {
             shownonempty(txt);
             continue;
@@ -89,6 +99,7 @@ int main()
         /* Если команда не известна */
         fprintf(stderr, "Unknown command: %s\n", cmd);
     }
+        
 
     return 0;
 }

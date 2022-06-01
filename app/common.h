@@ -40,5 +40,7 @@ void move(text txt, int line, int pose);
  * следования строк, кроме пустых строк
  */
 void shownonempty(text txt);
+void mwbb(text txt);
+void rc(text txt);
 
 #endif

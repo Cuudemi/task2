@@ -14,6 +14,8 @@ SOURCES += editor.c \
     create_text.c \
     process_forward.c \
     remove_all.c \
+    rc.c \
+    mwbb.c \
 
 HEADERS += \
     common.h \

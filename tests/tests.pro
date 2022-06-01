@@ -31,8 +31,8 @@ SOURCES +=     main.cpp \
     ../app/create_text.c \
     ../app/process_forward.c \
     ../app/remove_all.c \
-    ../app/mwbb.c \
     ../app/rc.c \
+    ../app/mwbb.c \
 
 INCLUDEPATH += ../app
 

@@ -35,5 +35,5 @@ void load(text txt, char *filename)
     }
     
     fprintf(stdout, "Load file successeed!\n");
-    fclose (f);
+    // fclose (f);
 }

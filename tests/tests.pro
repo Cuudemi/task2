@@ -16,10 +16,15 @@ LIBS += -lgcov
 
 DEFINES += INPUTDIR=\\\"$$PWD/input/\\\"
 
-HEADERS += tests.h \
+HEADERS += test_move.h \
+        test_load.h \
+        test_save.h \
+        test_sne.h \
+        test_rc.h \
+        test_mwbb.h \
         ../app/common.h \
         ../app/text.h \
-        ../app/_text.h
+        ../app/_text.h \
 
 SOURCES +=     main.cpp \
     ../app/load.c \

@@ -12,7 +12,7 @@ void move(text txt, int line, int pose)
     /* Стартуем с начальной точки текста */
     node *current = txt->begin;
 
-    int k;
+    int k = 0;
     if (pose >= 0) {
         txt->cursor->position = pose;
     } else {

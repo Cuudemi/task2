@@ -36,5 +36,5 @@ void save(text txt, char *filename) {
     } while(current);
 
     fprintf(stdout, "Save file successeed!\n");
-    // fclose (f);
+    fclose (f);
 }

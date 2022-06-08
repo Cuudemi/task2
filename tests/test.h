@@ -17,6 +17,7 @@ char *input_text_c = INPUTDIR "/text.c";
 char *input_text_with_empty_lines = INPUTDIR "/t.txt";
 char *input_empty = INPUTDIR "/empty.txt";
 char *input_non_empty = INPUTDIR "/non_empty.txt";
+char *input_two_space = INPUTDIR "/2.txt";
 
 /* -------------------------- move.c -------------------------- */
 
@@ -566,6 +567,36 @@ TEST(test_mwbb, positive_2) {
         "to my heart. His eyes had the brightness of fever,\n"
         "there was a hectic flush upon either cheek, and dark\n"
         "crusts |clung to his lips; the thin hands upon the\n"
+        "coverlet twitched incessantly, his voice was croaking and spasmodic. He lay listlessly as I entered\n"
+        "the room, but the sight of me brought a gleam of\n"
+        "recognition to his eyes.\n\n"
+
+        "“Well, Watson, we seem to have fallen upon evil\n"
+        "days,” said he in a feeble voice, but with something\n"
+        "of his old carelessness of manner.\n", output);
+
+    remove_all(txt);
+}
+
+// позитивный. курсор находится в позиции между двумя пробелами
+TEST(test_mwbb, positive_3) {
+    text txt = create_text();
+    load(txt, input_two_space);
+
+    move(txt,5,19);
+    mwbb(txt);
+
+    testing::internal::CaptureStdout();
+    show(txt);
+    std::string output = testing::internal::GetCapturedStdout();
+
+    ASSERT_EQ("He was indeed a deplorable spectacle. In the\n"
+        "dim light of a foggy November day the sick room\n"
+        "was a gloomy spot, but it was that gaunt, wasted\n"
+        "face staring at me from the bed which sent a chill\n"
+        "to my heart. His eyes had the brightness of fever,\n"
+        "there was a hectic | flush upon either cheek, and dark\n"
+        "crusts clung to his lips; the thin hands upon the\n"
         "coverlet twitched incessantly, his voice was croaking and spasmodic. He lay listlessly as I entered\n"
         "the room, but the sight of me brought a gleam of\n"
         "recognition to his eyes.\n\n"

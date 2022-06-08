@@ -42,3 +42,4 @@ DISTFILES += \
     tests/input/t.txt \
     tests/input/empty.txt \
     tests/input/non_empty/.txt\
+    tests/input/2.txt
